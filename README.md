@@ -52,6 +52,7 @@ The following code example demonstrates how to render stripline behind the serie
 The following image screenshot illustrates the output of the above code snippet.
 
 **Output:**
+
 ![Stripline-behind-series-in-Blazor-chart](/stripline-behind-series.png)
  
 **Conclusion**
