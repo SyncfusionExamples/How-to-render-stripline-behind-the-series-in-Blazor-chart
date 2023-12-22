@@ -53,9 +53,7 @@ The following image screenshot illustrates the output of the above code snippet.
 
 **Output:**
 ![Stripline-behind-series-in-Blazor-chart](/stripline-behind-series.png)
-
-[View the sample in GitHub](https://github.com/SyncfusionExamples/How-to-render-stripline-behind-the-series-in-Blazor-chart)
-
+ 
 **Conclusion**
 
 I hope you enjoyed learning how to render stripline behind the series in Blazor Chart Component.
