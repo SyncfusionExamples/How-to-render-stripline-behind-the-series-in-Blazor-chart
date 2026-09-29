@@ -1,66 +1,70 @@
-# How-to-render-stripline-behind-the-series-in-Blazor-chart
+# How to Render a Stripline Behind the Series in Syncfusion Blazor Chart
 
-This article describes how to render stripline behind the series in Blazor Chart Component.
+## Overview
 
-**Creating Stripline behind the series in Blazor chart**
+This sample demonstrates how to render a stripline behind chart data series using Syncfusion [Blazor Charts](https://www.syncfusion.com/blazor-components/blazor-charts). The implementation configures a stripline on the primary X-axis and uses the `ZIndex.Behind` setting to ensure the stripline is displayed underneath the chart series.
 
-[Blazor Chart](https://www.syncfusion.com/blazor-components/blazor-charts) supports rendering stripline behind the series by using [**ZIndex**](https://help.syncfusion.com/cr/blazor/Syncfusion.Blazor.Charts.ZIndex.html) property of stripline. This property takes values as `Behind` and `Over`. By default, stripline appears behind the series.
+This approach is useful for highlighting specific ranges, time periods, or categories without obscuring the plotted data. The sample uses a column chart bound to a collection of weather data and visually emphasizes a region of the chart through a configurable stripline.
 
-The following code example demonstrates how to render stripline behind the series in Blazor chart.
+## Key Features
 
-**Index.razor**
- 
-```cshtml
+- Uses the `SfChart` component to render a chart.
+- Configures `ChartPrimaryXAxis` with `ValueType="ValueType.Category"`.
+- Adds a stripline through the `ChartStriplines` collection.
+- Uses `ChartStripline` to define the highlighted region.
+- Sets `ZIndex="ZIndex.Behind"` to render the stripline beneath the chart series.
+- Uses `StartFromAxis="true"` to start stripline rendering from the axis origin.
+- Controls stripline width using the `Size` property.
+- Customizes stripline appearance using:
+  - `Color`
+  - `Opacity`
+- Displays category-based data using `ChartSeries`.
+- Binds data through the `DataSource` property.
+- Maps category and value fields using:
+  - `XName`
+  - `YName`
+- Renders the chart using `Type="ChartSeriesType.Column"`.
 
-@using Syncfusion.Blazor.Charts
+## Prerequisites
 
-<SfChart>
-    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category">
-        <ChartStriplines>
-            <ChartStripline StartFromAxis="true" Size="4" ZIndex="ZIndex.Behind" Opacity="0.5" Color="green" />
-        </ChartStriplines>
-    </ChartPrimaryXAxis>
+- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+- [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet) compatible with the project's target framework
 
-    <ChartSeriesCollection>
-        <ChartSeries Type="ChartSeriesType.Column" DataSource="@WeatherReports" XName="X" YName="Y">
-        </ChartSeries>
-    </ChartSeriesCollection>
-</SfChart>
+## How to Run the Project
 
-@code {
+**Visual Studio 2022**
 
-    public class ChartData
-    {
-        public string X { get; set; }
-        public double Y { get; set; }
-    }
+1. Clone or download this repository.
+2. Open the `Stripline/Stripline.csproj` project file in Visual Studio 2022.
+3. Restore NuGet packages when prompted.
+4. Build the project.
+5. Run the application using `Ctrl+F5`.
 
-    public List<ChartData> WeatherReports = new List<ChartData>
-    {
-        new ChartData { X = "Sun", Y = 28 },
-        new ChartData { X = "Mon", Y = 27 },
-        new ChartData { X = "Tue", Y = 33 },
-        new ChartData { X = "Wed", Y = 36 },
-        new ChartData { X = "Thu", Y = 28 },
-        new ChartData { X = "Fri", Y = 30 },
-        new ChartData { X = "Sat", Y = 31 }
-    };
-}
+**Visual Studio Code**
 
+1. Clone or download this repository.
+2. Open the repository folder in Visual Studio Code.
+3. Open the integrated terminal.
+4. Navigate to the project directory.
+
+```bash
+cd Stripline
+dotnet restore
+dotnet run
 ```
 
-The following image screenshot illustrates the output of the above code snippet.
+5. Open the local URL displayed in the terminal after the application starts.
 
-**Output:**
+## Project Structure
 
-![Stripline-behind-series-in-Blazor-chart](/stripline-behind-series.png)
- 
-**Conclusion**
+`Stripline/Pages/Index.razor` - Contains the `SfChart`, `ChartPrimaryXAxis`, `ChartStripline`, chart series configuration, and sample weather data used to demonstrate stripline rendering behind a series.
 
-I hope you enjoyed learning how to render stripline behind the series in Blazor Chart Component.
+## Support and Feedback
 
-You can refer to our [Blazor Chart feature tour](https://www.syncfusion.com/blazor-components/blazor-charts) page to know about its other groundbreaking feature representations and [documentation](https://blazor.syncfusion.com/documentation/chart/getting-started), and how to quickly get started for configuration specifications. You can also explore our [Blazor Chart example](https://blazor.syncfusion.com/demos/chart/line?theme=bootstrap5) to understand how to create and manipulate data.
+- For general product questions, visit the [Syncfusion Community Forum](https://www.syncfusion.com/forums) or [Syncfusion Support](https://www.syncfusion.com/support).
+- To report an issue specific to this sample, open a GitHub issue in this repository.
+- Refer to the official Chart StripLine documentation: https://help.syncfusion.com/chart-sdk/blazor/charts/strip-line
 
-For current customers, you can check out our components from the [License and Downloads](https://www.syncfusion.com/sales/teamlicense) page. If you are new to Syncfusion, you can try our 30-day [free trial](https://www.syncfusion.com/downloads/blazor) to check out our other controls.
+## License
 
-If you have any queries or require clarifications, please let us know in the comments section below. You can also contact us through our [support forums](https://www.syncfusion.com/forums), [support portal](https://support.syncfusion.com/create), or [feedback portal](https://www.syncfusion.com/feedback/blazor-components?control=charts). We are always happy to assist you!
+This is a Syncfusion sample project provided to demonstrate product usage. Review the [Syncfusion license terms](https://www.syncfusion.com/sales/pricing?category=ui-components) before using Syncfusion components in your own applications.
